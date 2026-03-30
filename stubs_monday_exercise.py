@@ -25,16 +25,17 @@ def test_store_open():
 
 
 def test_store_closed_morning():
-    fake_time = datetime(2025, 1, 1, 8, 0, 0)
-    result = get_store_status(fake_time)
+    fake_hour = datetime(2025, 1, 1, 8, 0, 0)
+    result = get_store_status(fake_hour)
     assert result == "Store is closed"
 
 
 def test_store_closed_night():
-    fake_time = datetime(2025, 1, 1, 23, 0, 0)
-    result = get_store_status(fake_time)
+    fake_moment = datetime(2025, 1, 1, 23, 0, 0)
+    result = get_store_status(fake_moment)
     assert result == "Store is closed"
 
+# I realise now i could have just done a else statment 
 
 # ------------------------------------------------------------
 # Exercise 2 -- random dependency
@@ -47,7 +48,7 @@ def assign_study_group(random_choice=None):
     return random_choice(["Group A", "Group B", "Group C"])
 
 
-def test_assign_study_group():
+def test_assign_study_group(): # i had to google stuff for this area, idk what im doing :sob: 
     def fake_choice(options):
         return "Group B"
 
